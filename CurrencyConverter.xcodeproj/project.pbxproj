@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A3C1BD422481FC7B003385F0 /* CurrencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1BD412481FC7B003385F0 /* CurrencyPicker.swift */; };
+		A3C1BD4524822DC1003385F0 /* CurrencyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1BD4424822DC1003385F0 /* CurrencyFetcher.swift */; };
 		ECAFE95F247D3FA6000E122C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAFE95E247D3FA6000E122C /* AppDelegate.swift */; };
 		ECAFE961247D3FA6000E122C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAFE960247D3FA6000E122C /* ViewController.swift */; };
 		ECAFE964247D3FA6000E122C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECAFE962247D3FA6000E122C /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		A3C1BD412481FC7B003385F0 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
+		A3C1BD4424822DC1003385F0 /* CurrencyFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFetcher.swift; sourceTree = "<group>"; };
 		ECAFE95B247D3FA6000E122C /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECAFE95E247D3FA6000E122C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECAFE960247D3FA6000E122C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
+		A3C1BD4324822D7B003385F0 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				A3C1BD4424822DC1003385F0 /* CurrencyFetcher.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		ECAFE952247D3FA6000E122C = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		ECAFE95D247D3FA6000E122C /* CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
+				A3C1BD4324822D7B003385F0 /* Operations */,
 				A322FF212481EE5C0091B4A4 /* VC */,
 				ECAFE95E247D3FA6000E122C /* AppDelegate.swift */,
 				ECAFE962247D3FA6000E122C /* Main.storyboard */,
@@ -271,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3C1BD422481FC7B003385F0 /* CurrencyPicker.swift in Sources */,
+				A3C1BD4524822DC1003385F0 /* CurrencyFetcher.swift in Sources */,
 				ECAFE961247D3FA6000E122C /* ViewController.swift in Sources */,
 				ECAFE95F247D3FA6000E122C /* AppDelegate.swift in Sources */,
 				ECAFE98F247D50AB000E122C /* CurrencyCellView.swift in Sources */,

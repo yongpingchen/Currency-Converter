@@ -8,27 +8,31 @@
 
 import UIKit
 
-class ViewController: UITableViewController, CurrencyPickerDelegate {
-    @IBAction func tapAddCurrency(_ sender: Any) {
-        
-    }
-    let exchangeRate = [
-        "USDJPY": 107.70504,
-        "USDCNY": 7.1368,
-        "USDEUR": 0.917688
-    ]
-    var currencies =  [
-        "USD",
-        "CNY",
-        "JPY",
-        "EUR"
-    ]
+class ViewController: UITableViewController, CurrencyPickerDelegate, CurrencyFetcherDelegate {
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    private var fetcher: CurrencyFetdcher?
     
-    let allCurrencies = ["AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTC","BTN","BWP","BYN","BYR","BZD","CAD","CDF","CHF","CLF","CLP","CNY","COP","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GGP","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","IMP","INR","IQD","IRR","ISK","JEP","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TWD","TZS","UAH","UGX","USD","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XCD","XDR","XOF","XPF","YER","ZAR","ZMK","ZMW","ZWL"]
+    var currencies =  [String]()
+    var allCurrencies = [String]()
+    var rates: [String: Double] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.fetcher = CurrencyFetdcher()
+        self.fetcher?.delegate = self
+        if let lastCurrencyUpdatedAt = UserDefaults.standard.object(forKey: "currencyRatesUpdatedAt") as? Date {
+            let now = Date()
+            if now.timeIntervalSince(lastCurrencyUpdatedAt) > 10 {
+                self.fetcher?.fetchCurrency()
+                self.activityIndicator.startAnimating()
+            } else {
+                self.allCurrencies = UserDefaults.standard.object(forKey: "currencies") as! [String]
+                self.rates = UserDefaults.standard.object(forKey: "rates") as! [String: Double]
+            }
+        } else {
+            self.fetcher?.fetchCurrency()
+            self.activityIndicator.startAnimating()
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,6 +78,26 @@ class ViewController: UITableViewController, CurrencyPickerDelegate {
         self.tableView.beginUpdates()
         self.tableView.insertRows(at: [IndexPath(row: self.currencies.count - 1, section: 0)], with: .bottom)
         self.tableView.endUpdates()
+    }
+    
+    func fetchedFailed(error: Error) {
+        print(error)
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    func fetchedCurrencies(currencies: [String], rates: [String: Double]) {
+        self.allCurrencies = currencies
+        UserDefaults.standard.set(Date(), forKey: "currencyRatesUpdatedAt")
+        UserDefaults.standard.set(currencies, forKey: "currencies")
+        UserDefaults.standard.set(rates, forKey: "rates")
+        self.allCurrencies = currencies
+        self.rates = rates
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+        }
+
     }
     
 }
