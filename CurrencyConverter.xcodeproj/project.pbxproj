@@ -14,7 +14,6 @@
 		ECAFE969247D3FA8000E122C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECAFE967247D3FA8000E122C /* LaunchScreen.storyboard */; };
 		ECAFE974247D3FA8000E122C /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAFE973247D3FA8000E122C /* CurrencyConverterTests.swift */; };
 		ECAFE97F247D3FA8000E122C /* CurrencyConverterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAFE97E247D3FA8000E122C /* CurrencyConverterUITests.swift */; };
-		ECAFE98D247D4FBF000E122C /* CurrencyCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAFE98C247D4FBF000E122C /* CurrencyCellView.xib */; };
 		ECAFE98F247D50AB000E122C /* CurrencyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAFE98E247D50AB000E122C /* CurrencyCellView.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +48,6 @@
 		ECAFE97A247D3FA8000E122C /* CurrencyConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyConverterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECAFE97E247D3FA8000E122C /* CurrencyConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterUITests.swift; sourceTree = "<group>"; };
 		ECAFE980247D3FA8000E122C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECAFE98C247D4FBF000E122C /* CurrencyCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CurrencyCellView.xib; path = Views/CurrencyCellView.xib; sourceTree = "<group>"; };
 		ECAFE98E247D50AB000E122C /* CurrencyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyCellView.swift; path = Views/CurrencyCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +105,6 @@
 				ECAFE965247D3FA8000E122C /* Assets.xcassets */,
 				ECAFE967247D3FA8000E122C /* LaunchScreen.storyboard */,
 				ECAFE96A247D3FA8000E122C /* Info.plist */,
-				ECAFE98C247D4FBF000E122C /* CurrencyCellView.xib */,
 				ECAFE98E247D50AB000E122C /* CurrencyCellView.swift */,
 			);
 			path = CurrencyConverter;
@@ -238,7 +235,6 @@
 				ECAFE969247D3FA8000E122C /* LaunchScreen.storyboard in Resources */,
 				ECAFE966247D3FA8000E122C /* Assets.xcassets in Resources */,
 				ECAFE964247D3FA6000E122C /* Main.storyboard in Resources */,
-				ECAFE98D247D4FBF000E122C /* CurrencyCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UITableViewController {
+    @IBAction func tapAddCurrency(_ sender: Any) {
+        
+    }
     let exchangeRate = [
         "USDJPY": 107.70504,
         "USDCNY": 7.1368,
@@ -37,8 +40,8 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
-        cell.textLabel?.text = currencies[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as! CurrencyCellView
+        cell.currencyLabel?.text = currencies[indexPath.row]
         return cell
     }
 

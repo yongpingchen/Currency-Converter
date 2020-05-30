@@ -10,4 +10,6 @@ import UIKit
 
 class CurrencyCellView: UITableViewCell {
     
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var currencyValue: UITextField!
 }
