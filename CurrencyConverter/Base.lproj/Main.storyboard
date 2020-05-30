@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +24,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUp-MN-NCs">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="USD" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUp-MN-NCs">
                                             <rect key="frame" x="21" y="11" width="53" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -31,7 +32,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BxB-Ym-50b">
-                                            <rect key="frame" x="104" y="4" width="200" height="34"/>
+                                            <rect key="frame" x="129" y="4" width="230" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" selected="YES"/>
@@ -39,6 +40,14 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AH4-Gi-8Sb">
+                                            <rect key="frame" x="82" y="11" width="19" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="chevron.down" catalog="system"/>
+                                            <connections>
+                                                <segue destination="o8O-vB-51m" kind="show" identifier="changeCurrency" id="s9J-Wc-pPh"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -56,6 +65,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="CPb-4J-wIz">
                             <connections>
                                 <action selector="tapAddCurrency:" destination="5zk-2F-Wx9" id="Bes-Pf-Cgl"/>
+                                <segue destination="o8O-vB-51m" kind="show" identifier="addCurrency" id="oRw-Bw-78d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -80,5 +90,42 @@
             </objects>
             <point key="canvasLocation" x="-2178" y="314"/>
         </scene>
+        <!--Currency Picker View Controller-->
+        <scene sceneID="iM3-wf-8db">
+            <objects>
+                <viewController id="o8O-vB-51m" customClass="CurrencyPickerViewController" customModule="CurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9bO-CH-M61">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JiC-tD-9eu">
+                                <rect key="frame" x="0.0" y="225" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ELd-3S-ARw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="J9p-Xp-tiv">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="KmS-PA-snl">
+                            <connections>
+                                <action selector="tapDone:" destination="o8O-vB-51m" id="rEm-KK-ehL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="picker" destination="JiC-tD-9eu" id="c1i-78-naK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blf-u5-NqD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-113" y="481"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="s9J-Wc-pPh"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+    </resources>
 </document>
