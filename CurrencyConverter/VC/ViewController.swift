@@ -13,8 +13,6 @@ class ViewController: UITableViewController, CurrencyPickerDelegate, CurrencyFet
     private var fetcher: CurrencyFetdcher?
     
     var currenciesData: [String: Double] = [:]
-//    var allCurrencies = [String]()
-//    var rates: [String: Double] = [:]
     var currencies = [String]()
     var converter: CurrencyConverter?
     
