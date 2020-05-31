@@ -8,12 +8,8 @@
 
 import UIKit
 
-class CurrencyCellView: UITableViewCell, CurrencyPickerDelegate {
+class CurrencyCellView: UITableViewCell {
     
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var currencyValue: UITextField!
-    
-    func selectedCurrency(_ currency: String) {
-        self.currencyLabel.text = currency
-    }
 }

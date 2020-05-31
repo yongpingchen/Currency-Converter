@@ -43,15 +43,10 @@
                                             </accessibility>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                        </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AH4-Gi-8Sb">
-                                            <rect key="frame" x="82" y="11" width="19" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="chevron.down" catalog="system"/>
                                             <connections>
-                                                <segue destination="o8O-vB-51m" kind="show" identifier="changeCurrency" id="s9J-Wc-pPh"/>
+                                                <outlet property="delegate" destination="5zk-2F-Wx9" id="pqG-Ju-sk9"/>
                                             </connections>
-                                        </button>
+                                        </textField>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -129,10 +124,4 @@
             <point key="canvasLocation" x="-113" y="481"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="s9J-Wc-pPh"/>
-    </inferredMetricsTieBreakers>
-    <resources>
-        <image name="chevron.down" catalog="system" width="128" height="72"/>
-    </resources>
 </document>
